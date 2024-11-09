@@ -1,0 +1,18 @@
+# LabWork1
+# Shafikov Ruslan
+# st112650@student.spbu.ru
+# group 83Б
+*.o
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+secret.txt
+passwor.txt
+badimages.txt
+keys.json
+/.vscode
+/.idea
+*.suo
+*.user
