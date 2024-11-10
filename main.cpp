@@ -12,12 +12,37 @@ int main() {
     DIBHeader dibHeader{};
     
     std::string fileInput;
-    while (1) {
+    while (1)
+    {
+        std::string validFiles[] = { "Airplane.bmp", "sample1.bmp", "sample2.bmp", "sample3.bmp", "sample4.bmp" };
 
         std::cout << "Please, choose an input file from Airplane.bmp, sample1.bmp, sample2.bmp, sample3.bmp, sample4.bmp" << std::endl;
         std::cout << "Or else the program will stop" << std::endl;
         std::cin >> fileInput;
-        if (fileInput == "Airplane.bmp" || fileInput == "sample1.bmp" || fileInput == "sample2.bmp" || fileInput == "sample3.bmp" || fileInput == "sample4.bmp") {
+        bool isValidFile = false;
+
+        for (const auto& file : validFiles) {
+            if (fileInput == file) {
+                isValidFile = true;
+            }
+        }
+        if (!isValidFile) {
+            return -1;
+        }
+        int input;
+        std::cout << "Enter 1 if you want rotate your file by 90 degrees" << std::endl;
+        std::cout << "Enter 2 if you want rotate your file by 180 degrees" << std::endl;
+        std::cout << "Enter 3 if you want rotate your file by 270 degrees" << std::endl;
+        std::cout << "Enter 4 if you want to use Gauss filter" << std::endl;
+        std::cout << "Enter 5 if you want to save file in outfile" << std::endl;
+        std::cout << "if you enter anything else the program will stop" << std::endl;
+        std::cin >> input;
+
+       
+            if (input > 5 || input <= 0) {
+                std::cout<< "Please start again and enter a command from 1 to 5" << std::endl;
+                return -1;
+            }
             std::ifstream infile(fileInput, std::ios::binary);
             std::ofstream outfile("output1.bmp", std::ios::binary);
 
@@ -67,14 +92,6 @@ int main() {
                 }
                 ++row;
             }
-            int input;
-            std::cout << "Enter 1 if you want rotate your file by 90 degrees" << std::endl;
-            std::cout << "Enter 2 if you want rotate your file by 180 degrees" << std::endl;
-            std::cout << "Enter 3 if you want rotate your file by 270 degrees" << std::endl;
-            std::cout << "Enter 4 if you want to use Gauss filter" << std::endl;
-            std::cout << "Enter 5 if you want to save file in outfile" << std::endl;
-            std::cout << "if you enter anything else the program will stop" << std::endl;
-            std::cin >> input;
 
 
             const int metaDataSize = fileSize - rowSize * height - 54 - additionalDataSize;
@@ -148,7 +165,7 @@ int main() {
                 delete[] metaData;
             }
 
-            else if (5) {
+            else if (input==5) {
                 saveFile(additionalDataSize, additionalData, rgbArray, metaData, metaDataSize, bmpHeader, dibHeader, outfile);
 
                 for (int i = 0; i < height; ++i) {
@@ -164,11 +181,8 @@ int main() {
             }
             infile.close();
             outfile.close();
-        }
-        else {
-            std::cout << "Wrong file input" << std::endl;
-            return -1;
-        }
+        
+       
     }
     return 0;
 }
