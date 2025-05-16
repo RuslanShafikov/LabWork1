@@ -1,9 +1,9 @@
-name: C++ Build with Makefile
+name: BMP Processor Tests
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,8 +13,37 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential
+          sudo apt-get install -y build-essential expect
 
-      - name: Build using Makefile
+      - name: Build project
+        run: make
+
+      - name: Test rotations and filter
         run: |
-          make rebuild
+          #!/usr/bin/expect -f
+          set timeout -1
+          
+          spawn ./main
+          expect "Please, choose an input file"
+          send "Airplane.bmp\r"
+          expect "Enter 1-5"
+          send "1\r"
+          
+          expect "Please, choose an input file"
+          send "Airplane.bmp\r"
+          expect "Enter 1-5"
+          send "2\r"
+          
+          expect "Please, choose an input file"
+          send "Airplane.bmp\r"
+          expect "Enter 1-5"
+          send "3\r"
+          
+          expect "Please, choose an input file"
+          send "Airplane.bmp\r"
+          expect "Enter 1-5"
+          send "4\r"
+          
+          expect "Please, choose an input file"
+          send "invalid\r"  # Trigger exit
+          expect eof

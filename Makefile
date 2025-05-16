@@ -1,22 +1,23 @@
-
 CXX = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -g -Iheader
+SRC_DIR = src
+BUILD_DIR = build
 
-SRCS = src/main.cpp src/BMP.cpp
-OBJS = $(SRCS:.cpp=.o)
-EXEC = main
+SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/BMP.cpp
+OBJS = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
+EXEC = $(BUILD_DIR)/main
 
 all: $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CXX) $(OBJS) -o $(EXEC)
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp header/BMP.h
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(EXEC)
+	rm -rf $(BUILD_DIR)
 
-rebuild: clean all
-
-.PHONY: all clean rebuild
+.PHONY: all clean
