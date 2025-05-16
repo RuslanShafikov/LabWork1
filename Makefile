@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -g -Iheader
+CXXFLAGS = -Wall -g -Iheader -fopenmp
 SRC_DIR = src
 BUILD_DIR = build
 
