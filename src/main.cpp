@@ -2,7 +2,7 @@
    st112650@student.spbu.ru
    LabWork1
  */
-#include "BMP.h"
+#include "../header/BMP.h"
 
 BMPHeader bmpHeader{};
 DIBHeader dibHeader{};

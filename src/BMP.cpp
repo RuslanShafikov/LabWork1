@@ -2,7 +2,7 @@
    st112650@student.spbu.ru
    LabWork1
  */
-#include "BMP.h"
+#include "../header/BMP.h"
 void printBMPHeader(BMPHeader& bmp) {
 	std::cout << "BMP Header:\n";
 	std::cout << "Signature: " << bmp.header[0] << bmp.header[1] << "\n";

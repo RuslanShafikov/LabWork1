@@ -2,7 +2,7 @@
 CXX = g++
 CXXFLAGS = -Wall -g
 
-SRCS = main.cpp BMP.cpp
+SRCS = src/main.cpp src/BMP.cpp
 OBJS = $(SRCS:.cpp=.o)
 EXEC = main
 
@@ -11,7 +11,7 @@ all: $(EXEC)
 $(EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $(EXEC)
 
-%.o: %.cpp BMP.h
+%.o: %.cpp header/BMP.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
