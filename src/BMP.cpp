@@ -35,7 +35,6 @@ void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 		arrayCopy[i] = new unsigned char[height * bytesPerPixel + padding];
 	}
 
-#pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[j][(height - 1 - i) * bytesPerPixel] = array[i][j * bytesPerPixel];
@@ -70,7 +69,7 @@ void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader,
 	for (int i = 0; i < width; ++i) {
 		arrayCopy[i] = new unsigned char[height * bytesPerPixel + padding];
 	}
-#pragma omp parallel for collapse(2)
+
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[width - 1 - j][(i)*bytesPerPixel] = array[i][j * bytesPerPixel];
@@ -104,7 +103,7 @@ void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 	for (int i = 0; i < height; ++i) {
 		arrayCopy[i] = new unsigned char[width * bytesPerPixel + padding];
 	}
-#pragma omp parallel for collapse(2)
+
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[height - 1 - i][(width - j - 1) * bytesPerPixel] = array[i][j * bytesPerPixel];
