@@ -70,6 +70,7 @@ void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader,
 	for (int i = 0; i < width; ++i) {
 		arrayCopy[i] = new unsigned char[height * bytesPerPixel + padding];
 	}
+        //parallizing
 #pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
@@ -144,6 +145,7 @@ void generateGaussianKernel(double& sigma, double kernel[7][7]) {
 		}
 	}
 }
+
 void applyGaussianFilter(unsigned char**& image, const int width, const int height, double kernel[7][7]) {
 	int kSize = 5;
 	int half = kSize / 2;
