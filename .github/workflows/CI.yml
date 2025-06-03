@@ -44,6 +44,11 @@ jobs:
             send "4\r"
           
             expect "Please, choose an input file"
+            send "Airplane.bmp\r"
+            expect "Enter 1-5"
+            send "5\r"
+          
+            expect "Please, choose an input file"
             send "invalid\r"
             expect eof
           '
