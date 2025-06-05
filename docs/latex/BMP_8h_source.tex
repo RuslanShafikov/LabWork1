@@ -1,0 +1,65 @@
+\doxysection{BMP.\+h}
+\hypertarget{BMP_8h_source}{}\label{BMP_8h_source}\index{header/BMP.h@{header/BMP.h}}
+\mbox{\hyperlink{BMP_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00001}00001\ \textcolor{comment}{/*\ Shafikov\ Ruslan}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ st112650@student.spbu.ru}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00003}00003\ \textcolor{comment}{\ \ \ LabWork1}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ structH}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ structH}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00012}\mbox{\hyperlink{structBMPHeader}{00012}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBMPHeader}{BMPHeader}}\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00013}\mbox{\hyperlink{structBMPHeader_a33504ca8cf23276ac349092b318efd9a}{00013}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structBMPHeader_a33504ca8cf23276ac349092b318efd9a}{header}}[2];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00014}\mbox{\hyperlink{structBMPHeader_a84f73492353e5888067ac119fef7ac9f}{00014}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structBMPHeader_a84f73492353e5888067ac119fef7ac9f}{size}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00015}\mbox{\hyperlink{structBMPHeader_a18dc79b706f3efef8ffba3b795a416c4}{00015}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structBMPHeader_a18dc79b706f3efef8ffba3b795a416c4}{reserved1}}[2];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00016}\mbox{\hyperlink{structBMPHeader_ae235cdb2b614f34ef4d8e8817ffb40eb}{00016}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structBMPHeader_ae235cdb2b614f34ef4d8e8817ffb40eb}{reserved2}}[2];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00017}\mbox{\hyperlink{structBMPHeader_a604a30b1f62a554d0e3e15da2d785231}{00017}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structBMPHeader_a604a30b1f62a554d0e3e15da2d785231}{offset}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00019}\mbox{\hyperlink{structBMPHeader_aff42fc9f93064b8e91cab72f75f6a0cb}{00019}}\ \ \ \ \ \mbox{\hyperlink{structBMPHeader_aff42fc9f93064b8e91cab72f75f6a0cb}{\string~BMPHeader}}()\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00024}\mbox{\hyperlink{structDIBHeader}{00024}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structDIBHeader}{DIBHeader}}\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00025}\mbox{\hyperlink{structDIBHeader_a0a09cd8bf9e1dd368a680e7e5f0d6416}{00025}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_a0a09cd8bf9e1dd368a680e7e5f0d6416}{size}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00026}\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{00026}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00027}\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{00027}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00028}\mbox{\hyperlink{structDIBHeader_ada28478f1c302a4d1c4b6799b31fb84e}{00028}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_ada28478f1c302a4d1c4b6799b31fb84e}{planes}}[2];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00029}\mbox{\hyperlink{structDIBHeader_abc89e3fc7a42f836addf74f64694ca5c}{00029}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_abc89e3fc7a42f836addf74f64694ca5c}{bitsPerPixel}}[2];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00030}\mbox{\hyperlink{structDIBHeader_a18cf76dcf652e02db66a0e06e25065bf}{00030}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_a18cf76dcf652e02db66a0e06e25065bf}{compression}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00031}\mbox{\hyperlink{structDIBHeader_afe7265660a277ef92ecaaeff3ae27126}{00031}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_afe7265660a277ef92ecaaeff3ae27126}{sizeImage}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00032}\mbox{\hyperlink{structDIBHeader_a95e7560342d2d1ca1b3e5de50c947c5f}{00032}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_a95e7560342d2d1ca1b3e5de50c947c5f}{horizontalResolution}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00033}\mbox{\hyperlink{structDIBHeader_ada285c6d1e74f02b29a2cc45049aa61b}{00033}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_ada285c6d1e74f02b29a2cc45049aa61b}{verticalResolution}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00034}\mbox{\hyperlink{structDIBHeader_aec18e8f226ae099798f4b5dcd5c97dea}{00034}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_aec18e8f226ae099798f4b5dcd5c97dea}{amountOfColors}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00035}\mbox{\hyperlink{structDIBHeader_a70ee0ef6ff7da3b06393853aa5f6e264}{00035}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structDIBHeader_a70ee0ef6ff7da3b06393853aa5f6e264}{amountOfImportantColors}}[4];}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00037}\mbox{\hyperlink{structDIBHeader_acad8d083402bd2ef2c81c57d6ebcdd93}{00037}}\ \ \ \ \ \mbox{\hyperlink{structDIBHeader_acad8d083402bd2ef2c81c57d6ebcdd93}{\string~DIBHeader}}()\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00040}00040\ \};}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00042}00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_aaeb2294e588d538bbe216d32a851c021}{printBMPHeader}}(\mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ bmp);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00044}00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_aff9b850bf8197c839d109eb178648ba6}{printDIBHeader}}(\mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ dib);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00046}00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_ae4816c22abf7c62477b9737c0d7fda55}{Rotate270}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00050}00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_a589efa98812c4a67bc738de4584f8663}{Rotate90}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00053}00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_afc3a3382e729756416cca2fe3a66fa9f}{Rotate180}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00054}00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_a6540aaea25ef90cae18d8d270e697fbc}{generateGaussianKernel}}(\textcolor{keywordtype}{double}\&\ sigma,\ \textcolor{keywordtype}{double}\ kernel[7][7]);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00055}00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_a2a167e55fe3841af028b401731f14309}{applyGaussianFilter}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\&\ image,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{double}\ kernel[7][7]);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00056}00056\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{BMP_8h_a12f158bb8baefc79b0bbe12dbdba170d}{exp\_approx}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00057}00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8h_a373af3be4a7ac15e29b88f1b32c3e0a4}{saveFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ additionalDataSize,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ rgbArray,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ metaData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ metaDataSize,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile);}
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{BMP_8h_source_l00059}00059\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

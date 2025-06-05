@@ -5,6 +5,9 @@
 #include "../header/BMP.h"
 #include <chrono>
 #include <iostream>
+/** @brief Prints BMP header information
+    @param bmp Reference to BMPHeader structure
+*/
 void printBMPHeader(BMPHeader& bmp) {
 	std::cout << "BMP Header:\n";
 	std::cout << "Signature: " << bmp.header[0] << bmp.header[1] << "\n";
@@ -13,7 +16,9 @@ void printBMPHeader(BMPHeader& bmp) {
 	std::cout << "Reserved2: " << *reinterpret_cast<const uint16_t*>(bmp.reserved2) << "\n";
 	std::cout << "Data Offset: " << *reinterpret_cast<const uint32_t*>(bmp.offset) << "\n";
 }
-
+/** @brief Prints DIB header information
+    @param dib Reference to DIBHeader structure
+*/
 void printDIBHeader(DIBHeader& dib) {
 	std::cout << "DIB Header:\n";
 	std::cout << "Header Size: " << *reinterpret_cast<const uint32_t*>(dib.size) << "\n";
@@ -29,6 +34,16 @@ void printDIBHeader(DIBHeader& dib) {
 	std::cout << "Important Colors: " << *reinterpret_cast<const uint32_t*>(dib.amountOfImportantColors) << "\n";
 }
 
+/** @brief Rotates image 270 degrees clockwise
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
 	auto start = std::chrono::high_resolution_clock::now();
   	const int height = *reinterpret_cast<int*>(dibHeader.height);
@@ -37,7 +52,7 @@ void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 	for (int i = 0; i < width; ++i) {
 		arrayCopy[i] = new unsigned char[height * bytesPerPixel + padding];
 	}
-
+	#pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[j][(height - 1 - i) * bytesPerPixel] = array[i][j * bytesPerPixel];
@@ -66,7 +81,16 @@ void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 	std::cout << "Rotate180 computation time: " << elapsed.count() << " seconds\n";
 }
 
-
+/** @brief Rotates image 90 degrees clockwise
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 
 void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
 	auto start = std::chrono::high_resolution_clock::now();
@@ -76,7 +100,7 @@ void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader,
 	for (int i = 0; i < width; ++i) {
 		arrayCopy[i] = new unsigned char[height * bytesPerPixel + padding];
 	}
-
+	#pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[width - 1 - j][(i)*bytesPerPixel] = array[i][j * bytesPerPixel];
@@ -105,7 +129,16 @@ void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader,
 	std::cout << "Rotate90 computation time: " << elapsed.count() << " seconds\n";
 }
 
-
+/** @brief Rotates image 180 degrees
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
 	auto start = std::chrono::high_resolution_clock::now();
   	const int height = *reinterpret_cast<int*>(dibHeader.height);
@@ -114,7 +147,7 @@ void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 	for (int i = 0; i < height; ++i) {
 		arrayCopy[i] = new unsigned char[width * bytesPerPixel + padding];
 	}
-
+	#pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			arrayCopy[height - 1 - i][(width - j - 1) * bytesPerPixel] = array[i][j * bytesPerPixel];
@@ -141,6 +174,12 @@ void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 
 const double PI = 3.14159265358979323846;
 
+/** @brief Generates 7x7 Gaussian kernel
+    @param sigma Standard deviation for Gaussian
+    @param kernel Output kernel array
+*/
+
+
 void generateGaussianKernel(double& sigma, double kernel[7][7]) {
 
 	double sum = 0.0;
@@ -157,6 +196,15 @@ void generateGaussianKernel(double& sigma, double kernel[7][7]) {
 		}
 	}
 }
+
+/** @brief Applies Gaussian blur to image
+    @param image 2D pixel array (modified in-place)
+    @param width Image width in pixels
+    @param height Image height in pixels
+    @param kernel Precomputed 7x7 Gaussian kernel
+*/
+
+
 void applyGaussianFilter(unsigned char**& image, const int width, const int height, double kernel[7][7]) {
 	auto start = std::chrono::high_resolution_clock::now();
  	int kSize = 5;
@@ -166,7 +214,7 @@ void applyGaussianFilter(unsigned char**& image, const int width, const int heig
 	for (int i = 0; i < height; ++i) {
 		newImage[i] = new unsigned char[width * 3];
 	}
-
+	#pragma omp parallel for collapse(2)
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			for (int c = 0; c < 3; ++c) {

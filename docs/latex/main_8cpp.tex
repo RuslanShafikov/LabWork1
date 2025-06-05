@@ -1,0 +1,258 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include "{}../header/\+BMP.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structBMPHeader}{BMPHeader}} \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmp\+Header}} \{\}
+\item 
+\mbox{\hyperlink{structDIBHeader}{DIBHeader}} \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dib\+Header}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}\{\};}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}\{\};}
+\DoxyCodeLine{00013\ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ fileInput;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::string\ validFiles[]\ =\ \{\ \textcolor{stringliteral}{"{}Airplane.bmp"{}},\ \textcolor{stringliteral}{"{}sample1.bmp"{}},\ \textcolor{stringliteral}{"{}sample2.bmp"{}},\ \textcolor{stringliteral}{"{}sample3.bmp"{}},\ \textcolor{stringliteral}{"{}sample4.bmp"{}}\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Please,\ choose\ an\ input\ file\ from\ Airplane.bmp,\ sample1.bmp,\ sample2.bmp,\ sample3.bmp,\ sample4.bmp"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Or\ else\ the\ program\ will\ stop"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::cin\ >>\ fileInput;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidFile\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ file\ :\ validFiles)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileInput\ ==\ file)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ isValidFile\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isValidFile)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ input;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 1\ if\ you\ want\ rotate\ your\ file\ by\ 90\ degrees"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 2\ if\ you\ want\ rotate\ your\ file\ by\ 180\ degrees"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 3\ if\ you\ want\ rotate\ your\ file\ by\ 270\ degrees"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 4\ if\ you\ want\ to\ use\ Gauss\ filter"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Enter\ 5\ if\ you\ want\ to\ save\ file\ in\ outfile"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}if\ you\ enter\ anything\ else\ the\ program\ will\ stop"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::cin\ >>\ input;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ >\ 5\ ||\ input\ <=\ 0)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout<<\ \textcolor{stringliteral}{"{}Please\ start\ again\ and\ enter\ a\ command\ from\ 1\ to\ 5"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::ifstream\ infile(fileInput,\ std::ios::binary);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ outfile(\textcolor{stringliteral}{"{}output1.bmp"{}},\ std::ios::binary);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ in\ opening\ input\ file"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ in\ opening\ output\ file"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ offset\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}.\mbox{\hyperlink{structBMPHeader_a604a30b1f62a554d0e3e15da2d785231}{offset}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ headerSize\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a0a09cd8bf9e1dd368a680e7e5f0d6416}{size}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ bytesPerPixel\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_abc89e3fc7a42f836addf74f64694ca5c}{bitsPerPixel}})\ /\ 8;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ padding\ =\ (4\ -\/\ (width\ *\ bytesPerPixel)\ \%\ 4)\ \%\ 4;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ rowSize\ =\ width\ *\ bytesPerPixel\ +\ padding;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ additionalDataSize\ =\ headerSize\ -\/\ 40;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fileSize\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}.\mbox{\hyperlink{structBMPHeader_a84f73492353e5888067ac119fef7ac9f}{size}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[additionalDataSize];}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (additionalDataSize\ >\ 0)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ infile.seekg(offset,\ std::ios::beg);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ rgbArray\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ [height];}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rgbArray[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[rowSize];}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ch\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (row\ <\ height)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ width\ *\ bytesPerPixel;\ ++i)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ infile.get(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\&\textcolor{keyword}{>}(ch));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ EOF)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rgbArray[row][i]\ =\ ch;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ EOF)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++row;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ metaDataSize\ =\ fileSize\ -\/\ rowSize\ *\ height\ -\/\ 54\ -\/\ additionalDataSize;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ metaData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[metaDataSize];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (metaDataSize\ >\ 0)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 4)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ kernel[7][7]\{\ 0.0\ \};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sigma\ =\ 0.0;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Please,\ enter\ sigma"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ sigma;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_a6540aaea25ef90cae18d8d270e697fbc}{generateGaussianKernel}}(sigma,\ kernel);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_a2a167e55fe3841af028b401731f14309}{applyGaussianFilter}}(rgbArray,\ width,\ height,\ kernel);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ rowSize;\ ++j)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.put(rgbArray[i][j]);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{stringliteral}{"{}\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0"{}},\ padding);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray[i];}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ metaData;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ additionalData;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ 3)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_ae4816c22abf7c62477b9737c0d7fda55}{Rotate270}}(rgbArray,\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ outfile,\ bytesPerPixel,\ padding,\ additionalData,\ additionalDataSize);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray[i];}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ additionalData;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ metaData;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ 2)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_afc3a3382e729756416cca2fe3a66fa9f}{Rotate180}}(rgbArray,\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ outfile,\ bytesPerPixel,\ padding,\ additionalData,\ additionalDataSize);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray[i];}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ additionalData;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ metaData;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ 1)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_a589efa98812c4a67bc738de4584f8663}{Rotate90}}(rgbArray,\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ outfile,\ bytesPerPixel,\ padding,\ additionalData,\ additionalDataSize);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray[i];}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ additionalData;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ metaData;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input==5)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BMP_8h_a373af3be4a7ac15e29b88f1b32c3e0a4}{saveFile}}(additionalDataSize,\ additionalData,\ rgbArray,\ metaData,\ metaDataSize,\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ outfile);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray[i];}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ rgbArray;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ metaData;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ additionalData;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ infile.close();}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ outfile.close();}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00188\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{BMP_8cpp_source_l00208}{apply\+Gaussian\+Filter()}}, \mbox{\hyperlink{BMP_8h_source_l00029}{DIBHeader\+::bits\+Per\+Pixel}}, \mbox{\hyperlink{main_8cpp_source_l00007}{bmp\+Header}}, \mbox{\hyperlink{main_8cpp_source_l00008}{dib\+Header}}, \mbox{\hyperlink{BMP_8cpp_source_l00183}{generate\+Gaussian\+Kernel()}}, \mbox{\hyperlink{BMP_8h_source_l00027}{DIBHeader\+::height}}, \mbox{\hyperlink{BMP_8h_source_l00017}{BMPHeader\+::offset}}, \mbox{\hyperlink{BMP_8cpp_source_l00142}{Rotate180()}}, \mbox{\hyperlink{BMP_8cpp_source_l00047}{Rotate270()}}, \mbox{\hyperlink{BMP_8cpp_source_l00095}{Rotate90()}}, \mbox{\hyperlink{BMP_8cpp_source_l00275}{save\+File()}}, \mbox{\hyperlink{BMP_8h_source_l00014}{BMPHeader\+::size}}, \mbox{\hyperlink{BMP_8h_source_l00025}{DIBHeader\+::size}}, and \mbox{\hyperlink{BMP_8h_source_l00026}{DIBHeader\+::width}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}\label{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18} 
+\index{main.cpp@{main.cpp}!bmpHeader@{bmpHeader}}
+\index{bmpHeader@{bmpHeader}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{bmpHeader}{bmpHeader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBMPHeader}{BMPHeader}} bmp\+Header \{\}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\};}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00010}{main()}}, \mbox{\hyperlink{BMP_8cpp_source_l00142}{Rotate180()}}, \mbox{\hyperlink{BMP_8cpp_source_l00047}{Rotate270()}}, \mbox{\hyperlink{BMP_8cpp_source_l00095}{Rotate90()}}, and \mbox{\hyperlink{BMP_8cpp_source_l00275}{save\+File()}}.
+
+\Hypertarget{main_8cpp_a343f5dee65589db5fe25c053f9962198}\label{main_8cpp_a343f5dee65589db5fe25c053f9962198} 
+\index{main.cpp@{main.cpp}!dibHeader@{dibHeader}}
+\index{dibHeader@{dibHeader}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dibHeader}{dibHeader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDIBHeader}{DIBHeader}} dib\+Header \{\}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{\};}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00010}{main()}}, \mbox{\hyperlink{BMP_8cpp_source_l00142}{Rotate180()}}, \mbox{\hyperlink{BMP_8cpp_source_l00047}{Rotate270()}}, \mbox{\hyperlink{BMP_8cpp_source_l00095}{Rotate90()}}, and \mbox{\hyperlink{BMP_8cpp_source_l00275}{save\+File()}}.
+
