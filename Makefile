@@ -3,8 +3,8 @@ CXXFLAGS = -Wall -g -Iheader -fopenmp
 SRC_DIR = src
 
 SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/BMP.cpp
-OBJS = $(patsubst $(SRC_DIR)/%.cpp,%.o,$(SRCS))  # Changed: Objects in root
-EXEC = main  # Changed: Executable in root
+OBJS = $(patsubst $(SRC_DIR)/%.cpp,%.o,$(SRCS))
+EXEC = main
 
 all: $(EXEC)
 
