@@ -1,23 +1,30 @@
-CXX = g++
-CXXFLAGS = -Wall -g -Iheader
-SRC_DIR = src
-BUILD_DIR = build
+CXX := g++
+CXXFLAGS := -Iheader -Wall -Wextra -pedantic -std=c++17 -fopenmp
+SRCDIR := src
 
-SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/BMP.cpp
-OBJS = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
-EXEC = $(BUILD_DIR)/main
+MAIN_OBJS := $(SRCDIR)/main.o $(SRCDIR)/BMP.o
+TEST_OBJS := $(SRCDIR)/test.o $(SRCDIR)/BMP.o
 
-all: $(EXEC)
+TEST_LIBS := -lgtest -lpthread -fopenmp
 
-$(EXEC): $(OBJS)
-	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-clean:
-	rm -rf $(BUILD_DIR)
+EXECUTABLES := main test
 
 .PHONY: all clean
+
+all: $(EXECUTABLES)
+
+main: $(MAIN_OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ -fopenmp
+
+test: $(TEST_OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(TEST_LIBS)
+
+$(SRCDIR)/%.o: $(SRCDIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(SRCDIR)/main.o: header/BMP.h
+$(SRCDIR)/test.o: header/BMP.h
+$(SRCDIR)/BMP.o: header/BMP.h
+
+clean:
+	rm -f $(EXECUTABLES) $(SRCDIR)/*.o
