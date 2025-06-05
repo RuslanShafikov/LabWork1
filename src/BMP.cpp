@@ -3,6 +3,11 @@
    LabWork1
  */
 #include "../header/BMP.h"
+#include <chrono>
+#include <iostream>
+/** @brief Prints BMP header information
+    @param bmp Reference to BMPHeader structure
+*/
 void printBMPHeader(BMPHeader& bmp) {
 	std::cout << "BMP Header:\n";
 	std::cout << "Signature: " << bmp.header[0] << bmp.header[1] << "\n";
@@ -11,7 +16,9 @@ void printBMPHeader(BMPHeader& bmp) {
 	std::cout << "Reserved2: " << *reinterpret_cast<const uint16_t*>(bmp.reserved2) << "\n";
 	std::cout << "Data Offset: " << *reinterpret_cast<const uint32_t*>(bmp.offset) << "\n";
 }
-
+/** @brief Prints DIB header information
+    @param dib Reference to DIBHeader structure
+*/
 void printDIBHeader(DIBHeader& dib) {
 	std::cout << "DIB Header:\n";
 	std::cout << "Header Size: " << *reinterpret_cast<const uint32_t*>(dib.size) << "\n";
@@ -27,8 +34,19 @@ void printDIBHeader(DIBHeader& dib) {
 	std::cout << "Important Colors: " << *reinterpret_cast<const uint32_t*>(dib.amountOfImportantColors) << "\n";
 }
 
+/** @brief Rotates image 270 degrees clockwise
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
-	const int height = *reinterpret_cast<int*>(dibHeader.height);
+	auto start = std::chrono::high_resolution_clock::now();
+  	const int height = *reinterpret_cast<int*>(dibHeader.height);
 	const int width = *reinterpret_cast<int*>(dibHeader.width);
 	unsigned char** arrayCopy = new unsigned char* [width];
 	for (int i = 0; i < width; ++i) {
@@ -58,12 +76,25 @@ void Rotate270(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 		delete[] arrayCopy[j];
 	}
 	delete[] arrayCopy;
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = end - start;
+	std::cout << "Rotate180 computation time: " << elapsed.count() << " seconds\n";
 }
 
-
+/** @brief Rotates image 90 degrees clockwise
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 
 void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
-	const int height = *reinterpret_cast<int*>(dibHeader.height);
+	auto start = std::chrono::high_resolution_clock::now();
+  	const int height = *reinterpret_cast<int*>(dibHeader.height);
 	const int width = *reinterpret_cast<int*>(dibHeader.width);
 	unsigned char** arrayCopy = new unsigned char* [width];
 	for (int i = 0; i < width; ++i) {
@@ -93,11 +124,24 @@ void Rotate90(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader,
 		delete[] arrayCopy[j];
 	}
 	delete[] arrayCopy;
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = end - start;
+	std::cout << "Rotate90 computation time: " << elapsed.count() << " seconds\n";
 }
 
-
+/** @brief Rotates image 180 degrees
+    @param array 2D pixel array (height x rowSize)
+    @param bmpHeader BMP header structure
+    @param dibHeader DIB header structure
+    @param outfile Output file stream
+    @param bytesPerPixel Bytes per pixel (3 for 24-bit)
+    @param padding Row padding size
+    @param additionalData Additional header data
+    @param additionalDataSize Size of additional data
+*/
 void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader, std::ofstream& outfile, const int& bytesPerPixel, const int& padding, unsigned char* additionalData, const int& additionalDataSize) {
-	const int height = *reinterpret_cast<int*>(dibHeader.height);
+	auto start = std::chrono::high_resolution_clock::now();
+  	const int height = *reinterpret_cast<int*>(dibHeader.height);
 	const int width = *reinterpret_cast<int*>(dibHeader.width);
 	unsigned char** arrayCopy = new unsigned char* [height];
 	for (int i = 0; i < height; ++i) {
@@ -123,9 +167,18 @@ void Rotate180(unsigned char** array, BMPHeader& bmpHeader, DIBHeader& dibHeader
 		delete[] arrayCopy[j];
 	}
 	delete[] arrayCopy;
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = end - start;
+	std::cout << "Rotate180 computation time: " << elapsed.count() << " seconds\n";
 }
 
 const double PI = 3.14159265358979323846;
+
+/** @brief Generates 7x7 Gaussian kernel
+    @param sigma Standard deviation for Gaussian
+    @param kernel Output kernel array
+*/
+
 
 void generateGaussianKernel(double& sigma, double kernel[7][7]) {
 
@@ -143,8 +196,18 @@ void generateGaussianKernel(double& sigma, double kernel[7][7]) {
 		}
 	}
 }
+
+/** @brief Applies Gaussian blur to image
+    @param image 2D pixel array (modified in-place)
+    @param width Image width in pixels
+    @param height Image height in pixels
+    @param kernel Precomputed 7x7 Gaussian kernel
+*/
+
+
 void applyGaussianFilter(unsigned char**& image, const int width, const int height, double kernel[7][7]) {
-	int kSize = 5;
+	auto start = std::chrono::high_resolution_clock::now();
+ 	int kSize = 5;
 	int half = kSize / 2;
 
 	unsigned char** newImage = new unsigned char* [height];
@@ -182,6 +245,9 @@ void applyGaussianFilter(unsigned char**& image, const int width, const int heig
 		delete[] newImage[i];
 	}
 	delete[] newImage;
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = end - start;
+	std::cout << "Gauss computation time: " << elapsed.count() << " seconds\n";
 }
 
 double exp_approx(double x) {

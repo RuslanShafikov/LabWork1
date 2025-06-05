@@ -9,3 +9,5 @@ Program can : rotate the file(90, 180, 270 degree), save it, use Gauss filter.
 make
 ## Run 
 ./main
+## Run tests
+./test

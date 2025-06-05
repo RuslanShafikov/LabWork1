@@ -5,7 +5,6 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -13,42 +12,52 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential expect  # Install `expect` explicitly
+          sudo apt-get install -y build-essential expect libgtest-dev
+          cd /usr/src/googletest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp lib/*.a /usr/lib
 
-      - name: Build project
+      - name: Build project and tests
         run: make
+
+      - name: Run unit tests
+        run: ./test
 
       - name: Test rotations and filter
         run: |
           # Use `expect` to automate input
           expect -c '
+            set timeout 30
             spawn ./main
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "Airplane.bmp\r"
-            expect "Enter 1-5"
+            expect "Enter 1 if you want rotate your file by 90 degrees"
             send "1\r"
           
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "Airplane.bmp\r"
-            expect "Enter 1-5"
+            expect "Enter 1 if you want rotate your file by 90 degrees"
             send "2\r"
           
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "Airplane.bmp\r"
-            expect "Enter 1-5"
+            expect "Enter 1 if you want rotate your file by 90 degrees"
             send "3\r"
           
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "Airplane.bmp\r"
-            expect "Enter 1-5"
+            expect "Enter 1 if you want rotate your file by 90 degrees"
             send "4\r"
+            expect "Please, enter sigma"
+            send "1.0\r"
           
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "Airplane.bmp\r"
-            expect "Enter 1-5"
+            expect "Enter 1 if you want rotate your file by 90 degrees"
             send "5\r"
           
-            expect "Please, choose an input file"
+            expect "Please, choose an input file from"
             send "invalid\r"
             expect eof
           '

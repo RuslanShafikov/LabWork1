@@ -1,0 +1,248 @@
+\doxysection{BMP.\+cpp}
+\hypertarget{BMP_8cpp_source}{}\label{BMP_8cpp_source}\index{src/BMP.cpp@{src/BMP.cpp}}
+\mbox{\hyperlink{BMP_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00001}00001\ \textcolor{comment}{/*\ Shafikov\ Ruslan}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00002}00002\ \textcolor{comment}{\ \ \ st112650@student.spbu.ru}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00003}00003\ \textcolor{comment}{\ \ \ LabWork1}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../header/BMP.h"{}}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00011}\mbox{\hyperlink{BMP_8h_aaeb2294e588d538bbe216d32a851c021}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_aaeb2294e588d538bbe216d32a851c021}{printBMPHeader}}(\mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ bmp)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00012}00012\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}BMP\ Header:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00013}00013\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Signature:\ "{}}\ <<\ bmp.\mbox{\hyperlink{structBMPHeader_a33504ca8cf23276ac349092b318efd9a}{header}}[0]\ <<\ bmp.\mbox{\hyperlink{structBMPHeader_a33504ca8cf23276ac349092b318efd9a}{header}}[1]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00014}00014\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}File\ Size:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(bmp.\mbox{\hyperlink{structBMPHeader_a84f73492353e5888067ac119fef7ac9f}{size}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00015}00015\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Reserved1:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint16\_t*\textcolor{keyword}{>}(bmp.\mbox{\hyperlink{structBMPHeader_a18dc79b706f3efef8ffba3b795a416c4}{reserved1}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00016}00016\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Reserved2:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint16\_t*\textcolor{keyword}{>}(bmp.\mbox{\hyperlink{structBMPHeader_ae235cdb2b614f34ef4d8e8817ffb40eb}{reserved2}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00017}00017\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Data\ Offset:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(bmp.\mbox{\hyperlink{structBMPHeader_a604a30b1f62a554d0e3e15da2d785231}{offset}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00022}\mbox{\hyperlink{BMP_8h_aff9b850bf8197c839d109eb178648ba6}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_aff9b850bf8197c839d109eb178648ba6}{printDIBHeader}}(\mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ dib)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00023}00023\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}DIB\ Header:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00024}00024\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Header\ Size:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_a0a09cd8bf9e1dd368a680e7e5f0d6416}{size}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00025}00025\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Width:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }int32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00026}00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Height:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }int32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00027}00027\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Planes:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint16\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_ada28478f1c302a4d1c4b6799b31fb84e}{planes}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00028}00028\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Bits\ per\ Pixel:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint16\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_abc89e3fc7a42f836addf74f64694ca5c}{bitsPerPixel}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00029}00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Compression:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_a18cf76dcf652e02db66a0e06e25065bf}{compression}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00030}00030\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Image\ Size:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_afe7265660a277ef92ecaaeff3ae27126}{sizeImage}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00031}00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Horizontal\ Resolution:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }int32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_a95e7560342d2d1ca1b3e5de50c947c5f}{horizontalResolution}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00032}00032\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vertical\ Resolution:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }int32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_ada285c6d1e74f02b29a2cc45049aa61b}{verticalResolution}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00033}00033\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Colors\ Used:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_aec18e8f226ae099798f4b5dcd5c97dea}{amountOfColors}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00034}00034\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Important\ Colors:\ "{}}\ <<\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t*\textcolor{keyword}{>}(dib.\mbox{\hyperlink{structDIBHeader_a70ee0ef6ff7da3b06393853aa5f6e264}{amountOfImportantColors}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00047}\mbox{\hyperlink{BMP_8h_ae4816c22abf7c62477b9737c0d7fda55}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_ae4816c22abf7c62477b9737c0d7fda55}{Rotate270}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ arrayCopy\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ [width];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ width;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ arrayCopy[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[height\ *\ bytesPerPixel\ +\ padding];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ collapse(2)}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[j][(height\ -\/\ 1\ -\/\ i)\ *\ bytesPerPixel]\ =\ array[i][j\ *\ bytesPerPixel];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[j][(height\ -\/\ 1\ -\/\ i)\ *\ bytesPerPixel\ +\ 1]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[j][(height\ -\/\ 1\ -\/\ i)\ *\ bytesPerPixel\ +\ 2]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 2];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00065}00065\ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}})\ =\ height;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00066}00066\ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}})\ =\ m;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00068}00068\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00069}00069\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00070}00070\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ width;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(arrayCopy[i]),\ height\ *\ bytesPerPixel\ +\ padding);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy[j];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00080}00080\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00081}00081\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Rotate180\ computation\ time:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}\ seconds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00095}\mbox{\hyperlink{BMP_8h_a589efa98812c4a67bc738de4584f8663}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_a589efa98812c4a67bc738de4584f8663}{Rotate90}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ arrayCopy\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ [width];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ width;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ arrayCopy[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[height\ *\ bytesPerPixel\ +\ padding];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00103}00103\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ collapse(2)}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[width\ -\/\ 1\ -\/\ j][(i)*bytesPerPixel]\ =\ array[i][j\ *\ bytesPerPixel];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[width\ -\/\ 1\ -\/\ j][(i)*bytesPerPixel\ +\ 1]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[width\ -\/\ 1\ -\/\ j][(i)*bytesPerPixel\ +\ 2]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 2];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00113}00113\ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}})\ =\ height;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00114}00114\ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}})\ =\ m;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00116}00116\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00117}00117\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00118}00118\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ width;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(arrayCopy[i]),\ height\ *\ bytesPerPixel\ +\ padding);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy[j];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00128}00128\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00129}00129\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Rotate90\ computation\ time:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}\ seconds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00142}\mbox{\hyperlink{BMP_8h_afc3a3382e729756416cca2fe3a66fa9f}{00142}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_afc3a3382e729756416cca2fe3a66fa9f}{Rotate180}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ array,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ bytesPerPixel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ padding,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ additionalDataSize)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00145}00145\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ arrayCopy\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ [height];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ arrayCopy[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[width\ *\ bytesPerPixel\ +\ padding];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00150}00150\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ collapse(2)}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[height\ -\/\ 1\ -\/\ i][(width\ -\/\ j\ -\/\ 1)\ *\ bytesPerPixel]\ =\ array[i][j\ *\ bytesPerPixel];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[height\ -\/\ 1\ -\/\ i][(width\ -\/\ j\ -\/\ 1)\ *\ bytesPerPixel\ +\ 1]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCopy[height\ -\/\ 1\ -\/\ i][(width\ -\/\ j\ -\/\ 1)\ *\ bytesPerPixel\ +\ 2]\ =\ array[i][j\ *\ bytesPerPixel\ +\ 2];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00159}00159\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00160}00160\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00161}00161\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00162}00162\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(arrayCopy[i]),\ width\ *\ bytesPerPixel\ +\ padding);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ height;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy[j];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00168}00168\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keyword}{delete}[]\ arrayCopy;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00171}00171\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00172}00172\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Rotate180\ computation\ time:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}\ seconds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00173}00173\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00175}\mbox{\hyperlink{BMP_8cpp_a952eac791b596a61bba0a133a3bb439f}{00175}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{BMP_8cpp_a952eac791b596a61bba0a133a3bb439f}{PI}}\ =\ 3.14159265358979323846;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00183}\mbox{\hyperlink{BMP_8h_a6540aaea25ef90cae18d8d270e697fbc}{00183}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_a6540aaea25ef90cae18d8d270e697fbc}{generateGaussianKernel}}(\textcolor{keywordtype}{double}\&\ sigma,\ \textcolor{keywordtype}{double}\ kernel[7][7])\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00185}00185\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ -\/3;\ i\ <=\ 3;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ -\/3;\ j\ <=\ 3;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ kernel[i\ +\ 3][j\ +\ 3]\ =\ (1.0\ /\ (2\ *\ \mbox{\hyperlink{BMP_8cpp_a952eac791b596a61bba0a133a3bb439f}{PI}}\ *\ sigma\ *\ sigma))\ *\ \mbox{\hyperlink{BMP_8cpp_a12f158bb8baefc79b0bbe12dbdba170d}{exp\_approx}}(-\/(i\ *\ i\ +\ j\ *\ j)\ /\ (2\ *\ sigma\ *\ sigma));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ kernel[i\ +\ 3][j\ +\ 3];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00191}00191\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00193}00193\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 7;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 7;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ kernel[i][j]\ /=\ sum;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00197}00197\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00198}00198\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00208}\mbox{\hyperlink{BMP_8h_a2a167e55fe3841af028b401731f14309}{00208}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_a2a167e55fe3841af028b401731f14309}{applyGaussianFilter}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\&\ image,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{double}\ kernel[7][7])\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00209}00209\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{keywordtype}{int}\ kSize\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{int}\ half\ =\ kSize\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00213}00213\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ newImage\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ [height];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00214}00214\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ newImage[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[width\ *\ 3];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00216}00216\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00217}00217\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ omp\ parallel\ for\ collapse(2)}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00218}00218\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ 3;\ ++c)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iBorder\ =\ -\/half;\ iBorder\ <=\ half;\ ++iBorder)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ jBorder\ =\ -\/half;\ jBorder\ <=\ half;\ ++jBorder)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ X\ =\ j\ +\ iBorder;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Y\ =\ i\ +\ jBorder;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (X\ >=\ 0\ \&\&\ X\ <\ width\ \&\&\ Y\ >=\ 0\ \&\&\ Y\ <\ height)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ (double)(image[Y][X\ *\ 3\ +\ c])\ *\ kernel[iBorder\ +\ half][jBorder\ +\ half];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum\ =\ std::max(0.0,\ std::min(255.0,\ sum));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newImage[i][j\ *\ 3\ +\ c]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(sum);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00237}00237\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ width\ *\ 3;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ image[i][j]\ =\ newImage[i][j];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00242}00242\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00244}00244\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ newImage[i];}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00246}00246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keyword}{delete}[]\ newImage;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00248}00248\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00249}00249\ \ \ \ \ std::chrono::duration<double>\ elapsed\ =\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00250}00250\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Gauss\ computation\ time:\ "{}}\ <<\ elapsed.count()\ <<\ \textcolor{stringliteral}{"{}\ seconds\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00251}00251\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00253}\mbox{\hyperlink{BMP_8h_a12f158bb8baefc79b0bbe12dbdba170d}{00253}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{BMP_8cpp_a12f158bb8baefc79b0bbe12dbdba170d}{exp\_approx}}(\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00254}00254\ \ \ \ \ \textcolor{keywordtype}{double}\ result\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{keywordtype}{double}\ term\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00257}00257\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ epsilon\ =\ 1e-\/10;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ term\ *=\ x\ /\ n;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ result\ +=\ term;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(term)\ <\ epsilon)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ ++n;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00270}00270\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00273}00273\ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00275}\mbox{\hyperlink{BMP_8h_a373af3be4a7ac15e29b88f1b32c3e0a4}{00275}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BMP_8cpp_a373af3be4a7ac15e29b88f1b32c3e0a4}{saveFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ additionalDataSize,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ additionalData,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}**\ rgbArray,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ metaData,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ metaDataSize,\ \mbox{\hyperlink{structBMPHeader}{BMPHeader}}\&\ \mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}},\ \mbox{\hyperlink{structDIBHeader}{DIBHeader}}\&\ \mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}},\ std::ofstream\&\ outfile)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00276}00276\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_a5a21127758d26f3ae4672adfe28210d1}{width}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_af5007fceb0935a3e8d8ec3a595cf7631}{height}});}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ bytesPerPixel\ =\ *\textcolor{keyword}{reinterpret\_cast<}int32\_t*\textcolor{keyword}{>}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}.\mbox{\hyperlink{structDIBHeader_abc89e3fc7a42f836addf74f64694ca5c}{bitsPerPixel}})\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ padding\ =\ (4\ -\/\ (width\ *\ bytesPerPixel)\ \%\ 4)\ \%\ 4;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ rowSize\ =\ width\ *\ bytesPerPixel\ +\ padding;}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00281}00281\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a8a4d2401e78d3226c5051dc66eefae18}{bmpHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00282}00282\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{main_8cpp_a343f5dee65589db5fe25c053f9962198}{dibHeader}}));}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00283}00283\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(additionalData),\ additionalDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ rowSize;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ outfile.put(rgbArray[i][j]);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ outfile.write(\textcolor{stringliteral}{"{}\(\backslash\)0\(\backslash\)0\(\backslash\)0\(\backslash\)0"{}},\ padding);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00290}00290\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00292}00292\ \ \ \ \ outfile.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(metaData),\ metaDataSize);}
+\DoxyCodeLine{\Hypertarget{BMP_8cpp_source_l00293}00293\ \}}
+
+\end{DoxyCode}
